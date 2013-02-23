@@ -37,7 +37,7 @@ void commands(Stack* stack)
         }
         case 3:
         {
-            if (stack->size == 0)
+            if (stack->empty())
                 cout << "Stack is empty";
             else
                 cout << "The last element in stack: " << stack->top();

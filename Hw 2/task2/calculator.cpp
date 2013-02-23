@@ -3,6 +3,11 @@
 #include "calculator.h"
 using namespace std;
 
+int symbolCode(char ch1)
+{
+    return ((int)ch1 - '0');
+}
+
 int calculate(Stack* stack, char* str)
 {
     while(!stack->empty())
@@ -23,7 +28,7 @@ int calculate(Stack* stack, char* str)
                 stack->pop();
                 char ch2 = stack->top();
                 stack->pop();
-                stack->push((char)(((int)ch1 - '0') + ((int)ch2 - '0') + '0'));
+                stack->push((char)(symbolCode(ch1) + symbolCode(ch2) + '0'));
                 break;
             }
             case '-':
@@ -32,7 +37,7 @@ int calculate(Stack* stack, char* str)
                 stack->pop();
                 char ch2 = stack->top();
                 stack->pop();
-                stack->push((char)(((int)ch2 - '0') - ((int)ch1 - '0') + '0'));
+                stack->push((char)(symbolCode(ch2) - symbolCode(ch1) + '0'));
                 break;
             }
             case '*':
@@ -41,7 +46,7 @@ int calculate(Stack* stack, char* str)
                 stack->pop();
                 char ch2 = stack->top();
                 stack->pop();
-                stack->push((char)(((int)ch1 - '0') * ((int)ch2 - '0') + '0'));
+                stack->push((char)(symbolCode(ch1) * symbolCode(ch2) + '0'));
                 break;
             }
             case '/':
@@ -50,7 +55,7 @@ int calculate(Stack* stack, char* str)
                 stack->pop();
                 char ch2 = stack->top();
                 stack->pop();
-                stack->push((char)(((int)ch2 - '0') / ((int)ch1 - '0') + '0'));
+                stack->push((char)(symbolCode(ch2) / symbolCode(ch1) + '0'));
                 break;
             }
             }

@@ -7,5 +7,7 @@ public:
     virtual void pop() = 0;
     virtual bool empty() = 0;
     virtual char top() = 0;
+protected:
     int size;
+
 };
