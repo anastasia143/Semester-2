@@ -1,12 +1,6 @@
 #include <iostream>
 #include "bubbleSort.h"
 
-
-BubbleSort::BubbleSort()
-{
-
-}
-
 void BubbleSort::sortAscending(int* array, int size)
 {
     for (int i = 0; i < size - 1; i++)

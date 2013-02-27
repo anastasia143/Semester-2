@@ -1,9 +1,5 @@
 #include "quicksort.h"
 
-QuickSort::QuickSort()
-{
-}
-
 void QuickSort::sortAscending(int* array, int size)
 {
     quickSortAscending(array, 0, size - 1);

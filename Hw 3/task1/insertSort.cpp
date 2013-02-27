@@ -1,9 +1,5 @@
 #include "insertSort.h"
 
-InsertSort::InsertSort()
-{
-}
-
 void InsertSort::sortAscending(int* array, int size)
 {
     int temp, item;

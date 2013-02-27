@@ -4,7 +4,6 @@
 class QuickSort : public Sort
 {
 public:
-    QuickSort();
     void sortAscending(int* array, int size);
     void sortDescending(int* array, int size);
 private:
