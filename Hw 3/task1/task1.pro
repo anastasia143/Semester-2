@@ -20,11 +20,13 @@ SOURCES += main.cpp \
     arrayFunctions.cpp \
     sort.cpp \
     quickSort.cpp \
-    insertSort.cpp
+    insertSort.cpp \
+    createSort.cpp
 
 HEADERS += \
     bubbleSort.h \
     sort.h \
     arrayFunctions.h \
     quickSort.h \
-    insertSort.h
+    insertSort.h \
+    createSort.h

@@ -10,11 +10,12 @@ class Sort
 public:
     /**
 *@sortAscending
+*vitual method for Bubble Sort, Insert Sort, Quick Sort
 *@sortDescending
-*vitual methods for Bubble Sort, Insert Sort, Quick Sort
+*method that reverses array
 */
     virtual void sortAscending(int* array, int size) = 0;
-    virtual void sortDescending(int* array, int size) = 0;
+    void sortDescending(int* array, int size);
 protected:
     /**
 *@swap

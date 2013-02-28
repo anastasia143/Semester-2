@@ -5,13 +5,10 @@ class QuickSort : public Sort
 {
 public:
     void sortAscending(int* array, int size);
-    void sortDescending(int* array, int size);
 private:
     /**
 *@quickSortAscending
-*@quickSortDescending
-*main sorting methods that are caused by @sortAscending and @sortDescending
+*main sorting method that is caused by @sortAscending
 */
     void quickSortAscending(int* array, int start, int end);
-    void quickSortDescending(int* array, int start, int end);
 };
