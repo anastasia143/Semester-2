@@ -2,6 +2,7 @@
 #include "outputer.h"
 #include "fileOutputer.h"
 #include "consoleOutputer.h"
+#include "createOutputer.h"
 using namespace std;
 
 
@@ -46,25 +47,9 @@ int main()
     int command = 0;
     cin >> command;
 
-    switch(command)
-    {
-    case 1:
-    {
-        cout << endl << "Spiral: ";
-        Outputer* outputer = new ConsoleOutputer();
-        outputer->output(array, size);
-        delete outputer;
-        break;
-    }
-    case 2:
-    {
-        Outputer* outputer = new FileOutputer();
-        outputer->output(array, size);
-        delete outputer;
-        cout << endl << "Spiral was printed in file.";
-        break;
-    }
-    }
+    Outputer* outputer = createOutputer(command);
+    outputer->output(array, size);
+    delete outputer;
 
     for(int i = 0; i < size; i++)
     {

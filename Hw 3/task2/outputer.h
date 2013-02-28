@@ -3,5 +3,6 @@
 class Outputer
 {
 public:
-    virtual void output(int** array, int size) = 0;
+    void output(int** array, int size);
+    virtual void print(int number) = 0;
 };

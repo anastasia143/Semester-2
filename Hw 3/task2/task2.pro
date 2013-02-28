@@ -17,12 +17,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     fileOutputer.cpp \
-    consoleOutputer.cpp
+    consoleOutputer.cpp \
+    outputer.cpp \
+    createOutputer.cpp
 
 HEADERS += \
     fileOutputer.h \
     consoleOutputer.h \
-    outputer.h
+    outputer.h \
+    createOutputer.h
 
 OTHER_FILES += \
     file.txt
