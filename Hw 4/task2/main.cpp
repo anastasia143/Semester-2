@@ -1,3 +1,5 @@
+// Task is done
+
 #include <QtGui/QApplication>
 #include "mainWindow.h"
 

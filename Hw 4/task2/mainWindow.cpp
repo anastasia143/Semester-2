@@ -22,28 +22,27 @@ void MainWindow::calculate()
     int firstNumber = ui->firstNumber->value();
     int secondNumber = ui->secondNumber->value();
     int result = 0;
-    QString sign = ui->sign->currentText();
 
-    switch(sign[0].toAscii())
+    switch(ui->sign->currentIndex())
     {
-    case '+':
+    case 0:
         result = firstNumber + secondNumber;
         break;
-    case '-':
+    case 1:
         result = firstNumber - secondNumber;
         break;
-    case '*':
+    case 2:
         result = firstNumber * secondNumber;
         break;
-    case '/':
+    case 3:
     {
         if (secondNumber == 0)
         {
             ui->result->setText("error");
             return;
         }
-    result = firstNumber / secondNumber;
-    break;
+        result = firstNumber / secondNumber;
+        break;
     }
     }
     ui->result->setText(QString::number(result));
