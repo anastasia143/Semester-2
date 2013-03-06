@@ -44,6 +44,7 @@ Calculator::Calculator(QWidget *parent) :
     operationMapper->setMapping(ui->multiplication, 2);
     connect(ui->division, SIGNAL(clicked()), operationMapper, SLOT(map()));
     operationMapper->setMapping(ui->division, 3);
+
     connect(operationMapper, SIGNAL(mapped(int)), this, SLOT(signPressed(int)));
 
     connect(ui->equal, SIGNAL(clicked()), this, SLOT(equalPressed()));
@@ -89,6 +90,7 @@ void Calculator::pointPressed()
         arg2.append('.');
         ui->result->setText(arg2);
     }
+    return;
 }
 
 void Calculator::equalPressed()
