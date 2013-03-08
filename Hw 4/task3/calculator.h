@@ -1,5 +1,6 @@
 #pragma once
 #include <QMainWindow>
+#include "counter.h"
 
 namespace Ui {
 class Calculator;
@@ -8,17 +9,14 @@ class Calculator;
 class Calculator : public QMainWindow
 {
     Q_OBJECT
-    
+
 public:
     explicit Calculator(QWidget *parent = 0);
     ~Calculator();
-    
+    Counter counter;
+
 private:
     Ui::Calculator *ui;
-    int operation;
-    QString arg1;
-    QString arg2;
-    bool isItArg1;
 
 public slots:
     void numberPressed(int number);

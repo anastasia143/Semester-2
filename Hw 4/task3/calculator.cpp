@@ -1,6 +1,7 @@
 #include "calculator.h"
 #include "ui_calculator.h"
 #include "qsignalmapper.h"
+#include "counter.h"
 
 
 Calculator::Calculator(QWidget *parent) :
@@ -8,8 +9,6 @@ Calculator::Calculator(QWidget *parent) :
     ui(new Ui::Calculator)
 {
     ui->setupUi(this);
-
-    isItArg1 = true;
 
     QSignalMapper* numberMapper = new QSignalMapper(0);
     connect(ui->zero, SIGNAL(clicked()), numberMapper, SLOT(map()));
@@ -56,76 +55,27 @@ Calculator::~Calculator()
     delete ui;
 }
 
+
 void Calculator::signPressed(int sign)
 {
-    operation = sign;
-    isItArg1 = false;
+    counter.addSign(sign);
     return;
 }
 
 void Calculator::numberPressed(int number)
 {
-    if (isItArg1)
-    {
-        arg1.append(QString::number(number));
-        ui->result->setText(arg1);
-    }
-    else
-    {
-        arg2.append(QString::number(number));
-        ui->result->setText(arg2);
-    }
+    ui->result->setText(counter.addNumber(number));
     return;
 }
 
 void Calculator::pointPressed()
 {
-    if (isItArg1)
-    {
-        arg1.append('.');
-        ui->result->setText(arg1);
-    }
-    else
-    {
-        arg2.append('.');
-        ui->result->setText(arg2);
-    }
+    ui->result->setText(counter.addPoint());
     return;
 }
 
 void Calculator::equalPressed()
 {
-    isItArg1 = true;
-    double result = 0;
-    double firstNumber = arg1.toDouble();
-    double secondNumber = arg2.toDouble();
-
-    arg1.clear();
-    arg2.clear();
-
-    switch(operation)
-    {
-    case 0:
-        result = firstNumber + secondNumber;
-        break;
-    case 1:
-        result = firstNumber - secondNumber;
-        break;
-    case 2:
-        result = firstNumber * secondNumber;
-        break;
-    case 3:
-    {
-        if (secondNumber == 0)
-        {
-            ui->result->setText("error");
-            return;
-        }
-        result = firstNumber / secondNumber;
-        break;
-    }
-    }
-
-    ui->result->setText(QString::number(result));
+    ui->result->setText(counter.calculate());
     return;
 }

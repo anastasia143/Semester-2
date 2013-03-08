@@ -1,4 +1,4 @@
-// Task is done
+// Task is corrected
 
 #include <QtGui/QApplication>
 #include "calculator.h"
