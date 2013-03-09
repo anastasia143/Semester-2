@@ -9,6 +9,7 @@ Calculator::Calculator(QWidget *parent) :
     ui(new Ui::Calculator)
 {
     ui->setupUi(this);
+    isCalculatorClear = true;
 
     QSignalMapper* numberMapper = new QSignalMapper(0);
     connect(ui->zero, SIGNAL(clicked()), numberMapper, SLOT(map()));
@@ -48,6 +49,7 @@ Calculator::Calculator(QWidget *parent) :
 
     connect(ui->equal, SIGNAL(clicked()), this, SLOT(equalPressed()));
     connect(ui->point, SIGNAL(clicked()), this, SLOT(pointPressed()));
+    connect(ui->clearButton, SIGNAL(clicked()), this, SLOT(clearCalculator()));
 }
 
 Calculator::~Calculator()
@@ -58,7 +60,10 @@ Calculator::~Calculator()
 
 void Calculator::signPressed(int sign)
 {
+    if (!isCalculatorClear)
+        equalPressed();
     counter.addSign(sign);
+    isCalculatorClear = false;
     return;
 }
 
@@ -77,5 +82,14 @@ void Calculator::pointPressed()
 void Calculator::equalPressed()
 {
     ui->result->setText(counter.calculate());
+    isCalculatorClear = false;
+    return;
+}
+
+void Calculator::clearCalculator()
+{
+    counter.clearCounter();
+    isCalculatorClear = true;
+    ui->result->setText("");
     return;
 }

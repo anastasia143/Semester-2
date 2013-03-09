@@ -9,6 +9,7 @@ public:
     void addSign(int sign);
     QString calculate();
     QString addPoint();
+    void clearCounter();
 
 private:
     int operation;

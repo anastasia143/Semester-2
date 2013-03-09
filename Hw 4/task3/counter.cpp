@@ -44,7 +44,7 @@ QString Counter::addPoint()
 
 QString Counter::calculate()
 {
-    isItArg1 = true;
+    isItArg1 = false;
     double result = 0;
     double firstNumber = arg1.toDouble();
     double secondNumber = arg2.toDouble();
@@ -73,5 +73,15 @@ QString Counter::calculate()
         break;
     }
     }
+    arg1.append(QString::number(result));
     return (QString::number(result));
+}
+
+void Counter::clearCounter()
+{
+    arg1.clear();
+    arg2.clear();
+    isItArg1 = true;
+
+    return;
 }

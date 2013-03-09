@@ -17,12 +17,14 @@ public:
 
 private:
     Ui::Calculator *ui;
+    bool isCalculatorClear;
 
 public slots:
     void numberPressed(int number);
     void signPressed(int sign);
     void equalPressed();
     void pointPressed();
+    void clearCalculator();
 };
 
 
