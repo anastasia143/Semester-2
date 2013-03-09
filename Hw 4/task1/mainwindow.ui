@@ -28,7 +28,10 @@
     <item row="1" column="0">
      <widget class="QSlider" name="horizontalSlider">
       <property name="maximum">
-       <number>98</number>
+       <number>100</number>
+      </property>
+      <property name="tracking">
+       <bool>false</bool>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
