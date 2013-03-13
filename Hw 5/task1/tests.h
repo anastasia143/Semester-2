@@ -9,7 +9,7 @@ class HashTableTests : public QObject
 public:
     explicit HashTableTests(QObject *parent = 0) : QObject(parent) {}
 private:
-    HashTable table;
+    HashTable* table;
     HashKeyFunctions* hashKeyLen;
     HashKeyFunctions* hashKeyDeg;
     // 	Further:
@@ -17,7 +17,7 @@ private:
 private slots:
     void initTestCase()
     {
-        HashTable table;
+        table = new HashTable();
         hashKeyLen = hashKeyFunctionsCreator(1);
         hashKeyDeg = hashKeyFunctionsCreator(2);
     }
@@ -25,59 +25,61 @@ private slots:
     void testCheckLen()
     {
         char* str = "long";
-        table.addValue(str, hashKeyLen);
-        QCOMPARE(table.checkAvailability(str, hashKeyLen), true);
-        table.removeValue(str, hashKeyLen);
-        QCOMPARE(table.checkAvailability(str, hashKeyLen), false);
+        table->addValue(str, hashKeyLen);
+        QCOMPARE(table->checkAvailability(str, hashKeyLen), true);
+        table->removeValue(str, hashKeyLen);
+        QCOMPARE(table->checkAvailability(str, hashKeyLen), false);
     }
 
     void testCheckDeg()
     {
         char* str = "long";
-        table.addValue(str, hashKeyDeg);
-        QCOMPARE(table.checkAvailability(str, hashKeyDeg), true);
-        table.removeValue(str, hashKeyDeg);
-        QCOMPARE(table.checkAvailability(str, hashKeyDeg), false);
+        table->addValue(str, hashKeyDeg);
+        QCOMPARE(table->checkAvailability(str, hashKeyDeg), true);
+        table->removeValue(str, hashKeyDeg);
+        QCOMPARE(table->checkAvailability(str, hashKeyDeg), false);
     }
 
     void testAddLen()
     {
         char* str = "hello";
-        table.addValue(str, hashKeyLen);
-        QVERIFY(table.checkAvailability(str, hashKeyLen));
+        table->addValue(str, hashKeyLen);
+        QVERIFY(table->checkAvailability(str, hashKeyLen));
         str = "geome";
-        table.addValue(str, hashKeyLen);
-        QVERIFY(table.checkAvailability(str, hashKeyLen));
+        table->addValue(str, hashKeyLen);
+        QVERIFY(table->checkAvailability(str, hashKeyLen));
     }
 
     void testAddDeg()
     {
         char* str = "hello";
-        table.addValue(str, hashKeyDeg);
-        QVERIFY(table.checkAvailability(str, hashKeyDeg));
+        table->addValue(str, hashKeyDeg);
+        QVERIFY(table->checkAvailability(str, hashKeyDeg));
         str = "ertsu";
-        table.addValue(str, hashKeyDeg);
-        QVERIFY(table.checkAvailability(str, hashKeyDeg));
+        table->addValue(str, hashKeyDeg);
+        QVERIFY(table->checkAvailability(str, hashKeyDeg));
     }
 
     void testRemoveLen()
     {
         char* str = "hey";
-        table.addValue(str, hashKeyLen);
-        table.removeValue(str, hashKeyLen);
-        QVERIFY(!(table.checkAvailability(str, hashKeyLen)));
+        table->addValue(str, hashKeyLen);
+        table->removeValue(str, hashKeyLen);
+        QVERIFY(!(table->checkAvailability(str, hashKeyLen)));
     }
 
     void testRemoveDeg()
     {
         char* str = "hey";
-        table.addValue(str, hashKeyDeg);
-        table.removeValue(str, hashKeyDeg);
-        QVERIFY(!(table.checkAvailability(str, hashKeyDeg)));
+        table->addValue(str, hashKeyDeg);
+        table->removeValue(str, hashKeyDeg);
+        QVERIFY(!(table->checkAvailability(str, hashKeyDeg)));
     }
 
     void cleanupTestCase()
     {
-        table.~HashTable();
+        delete table;
+        delete hashKeyLen;
+        delete hashKeyDeg;
     }
 };
