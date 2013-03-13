@@ -99,6 +99,23 @@ void PointerList::print()
     return;
 }
 
+bool PointerList::check(int value)
+{
+    if (size == 0)
+        return false;
+    else
+    {
+        ListElement* temp = head;
+        while(temp != NULL)
+        {
+            if (temp->value == value)
+                return true;
+            temp = temp->next;
+        }
+    }
+    return false;
+}
+
 PointerList::~PointerList()
 {
     ListElement *temp = head;

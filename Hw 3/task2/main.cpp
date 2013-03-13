@@ -1,19 +1,26 @@
+/**
+ *@author Semenova Anastasia
+ *@version 1.0
+  */
+
+// Task is ready for check
+
 #include <iostream>
 #include "outputer.h"
 #include "fileOutputer.h"
 #include "consoleOutputer.h"
 #include "createOutputer.h"
+#include "outputerTests.h"
 using namespace std;
-
-
-/**
-  @author Semenova Anastasia
-  @version 1.0
-  */
 
 int main()
 {
-    int size = 2;
+    OutputerTests test;
+    QTest::qExec(&test);
+
+    // Interactive mode
+
+    /*int size = 2;
     cout << "Enter size of array (ODD natural number): ";
     cin >> size;
 
@@ -56,6 +63,7 @@ int main()
        delete[] array[i];
     }
     delete[] array;
+    */
 
     return 0;
 }

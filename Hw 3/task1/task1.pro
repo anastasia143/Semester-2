@@ -9,7 +9,7 @@ QT       += core
 QT       -= gui
 
 TARGET = task1
-CONFIG   += console
+CONFIG   += console qtestlib
 CONFIG   -= app_bundle
 
 TEMPLATE = app
@@ -29,4 +29,5 @@ HEADERS += \
     arrayFunctions.h \
     quickSort.h \
     insertSort.h \
-    createSort.h
+    createSort.h \
+    sortTests.h

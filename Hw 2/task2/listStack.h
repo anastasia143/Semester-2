@@ -16,6 +16,7 @@ public:
     void pop();
     bool empty();
     char top();
+
 protected:
     ListElement* head;
 };

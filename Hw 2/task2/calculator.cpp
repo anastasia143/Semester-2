@@ -64,10 +64,11 @@ int calculate(Stack* stack, char* str)
     return ((int)stack->top() - '0');
 }
 
+// In comments: there are operators for output postfix form. It doesn't need in tests.
 
 int calculator(Stack* stack, char* str)
 {
-    cout << "Postfix: ";
+    //cout << "Postfix: ";
 
     int postfixCount = -1;
     int len = strlen(str);
@@ -83,7 +84,7 @@ int calculator(Stack* stack, char* str)
                 while (!(stack->top() == '(')) // pop before ( and pop (
                 {
                     char ch = stack->top();
-                    cout << ch;
+                    //cout << ch;
                     postfixCount++;
                     postfix[postfixCount] = ch;
                     stack->pop();
@@ -112,7 +113,7 @@ int calculator(Stack* stack, char* str)
                     while((stack->top() == '*') || (stack->top() == '/')) // pop operations with equal priority
                     {
                         char ch = stack->top();
-                        cout << ch;
+                        //cout << ch;
                         postfixCount++;
                         postfix[postfixCount] = ch;
                         stack->pop();
@@ -141,7 +142,7 @@ int calculator(Stack* stack, char* str)
                     while((stack->top() == '+') || (stack->top() == '-') ||(stack->top() == '*') || (stack->top() == '/'))
                     {
                         char ch = stack->top(); // pop operations with big or equal priority
-                        cout << ch;
+                        //cout << ch;
                         postfixCount++;
                         postfix[postfixCount] = ch;
                         stack->pop();
@@ -157,7 +158,7 @@ int calculator(Stack* stack, char* str)
             }
         default:
         {
-            cout << str[i]; // numbers
+            //cout << str[i]; // numbers
             postfixCount++;
             postfix[postfixCount] = str[i];
             break;
@@ -167,7 +168,7 @@ int calculator(Stack* stack, char* str)
     while (!stack->empty())
     {
         char ch = stack->top();
-        cout << ch;
+        //cout << ch;
         postfixCount++;
         postfix[postfixCount] = ch;
         stack->pop();

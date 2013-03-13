@@ -3,17 +3,25 @@
 *@version 1.0
 */
 
+// Task is ready for check
+
 #include <iostream>
 #include "bubbleSort.h"
 #include "quickSort.h"
 #include "insertSort.h"
 #include "arrayFunctions.h"
 #include "createSort.h"
+#include "sortTests.h"
 using namespace std;
 
 int main()
 {
-    cout << "You have array of integer." << endl;
+    SortTests test;
+    QTest::qExec(&test);
+
+    // Interactive mode
+
+    /*cout << "You have array of integer." << endl;
     unsigned int size = 10;
     int* array = new int[size];
     fill(array, size);
@@ -47,6 +55,7 @@ int main()
         cin >> order;
     }
     delete[] array;
+    */
 
     return 0;
 }

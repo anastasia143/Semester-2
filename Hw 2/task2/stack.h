@@ -9,5 +9,6 @@ public:
     virtual char top() = 0;
 protected:
     int size;
-
 };
+
+Stack* stackCreator(int number);

@@ -36,10 +36,7 @@ void ArrayStack::pop()
 
 bool ArrayStack::empty()
 {
-    if (size == 0)
-        return true;
-    else
-        return false;
+    return (size == 0);
 }
 
 char ArrayStack::top()

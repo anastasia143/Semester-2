@@ -9,7 +9,7 @@ QT       += core
 QT       -= gui
 
 TARGET = task2
-CONFIG   += console
+CONFIG   += console qtestlib
 CONFIG   -= app_bundle
 
 TEMPLATE = app
@@ -25,7 +25,8 @@ HEADERS += \
     fileOutputer.h \
     consoleOutputer.h \
     outputer.h \
-    createOutputer.h
+    createOutputer.h \
+    outputerTests.h
 
 OTHER_FILES += \
     file.txt

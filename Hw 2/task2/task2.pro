@@ -9,7 +9,7 @@ QT       += core
 QT       -= gui
 
 TARGET = task2
-CONFIG   += console
+CONFIG   += console qtestlib
 CONFIG   -= app_bundle
 
 TEMPLATE = app
@@ -19,11 +19,13 @@ SOURCES += main.cpp \
     arrayStack.cpp \
     listStack.cpp \
     commands.cpp \
-    calculator.cpp
+    calculator.cpp \
+    stack.cpp
 
 HEADERS += \
     stack.h \
     arrayStack.h \
     listStack.h \
     commands.h \
-    calculator.h
+    calculator.h \
+    stackTests.h

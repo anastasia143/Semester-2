@@ -9,7 +9,7 @@ QT       += core
 QT       -= gui
 
 TARGET = task3
-CONFIG   += console
+CONFIG   += console qtestlib
 CONFIG   -= app_bundle
 
 TEMPLATE = app
@@ -21,4 +21,5 @@ SOURCES += main.cpp \
 
 HEADERS += \
     arrayFunctions.h \
-    sort.h
+    sort.h \
+    tests.h

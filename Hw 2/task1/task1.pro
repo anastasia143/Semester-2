@@ -9,7 +9,7 @@ QT       += core
 QT       -= gui
 
 TARGET = task1
-CONFIG   += console
+CONFIG   += console qtestlib
 CONFIG   -= app_bundle
 
 TEMPLATE = app
@@ -18,10 +18,12 @@ TEMPLATE = app
 SOURCES += main.cpp \
     pointerList.cpp \
     arrayList.cpp \
-    listCommands.cpp
+    listCommands.cpp \
+    list.cpp
 
 HEADERS += \
     list.h \
     arrayList.h \
     pointerList.h \
-    listCommands.h
+    listCommands.h \
+    listTests.h

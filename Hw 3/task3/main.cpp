@@ -4,9 +4,12 @@
 *This program sorts array with Bubble Sort.
   */
 
+// Task is ready for check.
+
 #include <iostream>
 #include "arrayFunctions.h"
 #include "sort.h"
+#include "tests.h"
 using namespace std;
 
 /*
@@ -17,7 +20,17 @@ m - columns
 
 int main()
 {
-    int n = 0;
+
+    int debug = 0;
+    cout << "Enter anything for test starting" << endl;
+    cin >> debug;
+
+    Tests test;
+    QTest::qExec(&test);
+
+    // Interactive mode
+
+    /*int n = 0;
     int m = 0;
     cout << "Enter size of array"
          << endl << "n (lines) := ";
@@ -39,7 +52,7 @@ int main()
 
     for(int i = 0; i < n; i++)
        delete[] array[i];
-    delete[] array;
+    delete[] array;*/
     
     return 0;
 }

@@ -46,6 +46,14 @@ void ArrayList::print()
     return;
 }
 
+bool ArrayList::check(int value)
+{
+    for(int i = 0; i < size; i++)
+        if (array[i] == value)
+            return true;
+    return false;
+}
+
 ArrayList::~ArrayList()
 {
     delete[] array;
