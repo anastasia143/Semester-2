@@ -16,22 +16,23 @@ public:
     ~Tree();
     void deleteTree(TreeNode<T>* temp);
     void clear();
+    int returnCount();
 /**
 Direct functional
 */
     void add(T value);
     void remove(T value);
-    bool exist(T value);  
+    bool exist(T value);
+    TreeNode<T>* root;
 /**
 Print functions that use defferent tree traversals
 */
+private:
+    int count;
     void printAscending();
     void printAscending(TreeNode<T> *node);
     void printDescending();
     void printDescending(TreeNode<T> *node);
-    TreeNode<T>* root;
-private:
-    int count;
 /**
 Helping recursive functions
 */
@@ -41,17 +42,19 @@ Helping recursive functions
 };
 
 template <typename T>
-Tree<T>::Tree()
-{
-    root = NULL;
-    count = 0;
-}
+Tree<T>::Tree() : root(NULL), count(0) {}
 
 template <typename T>
 void Tree<T>::add(T value)
 {
     add(root, value);
     count++;
+}
+
+template <typename T>
+int Tree<T>::returnCount()
+{
+    return count;
 }
 
 template <typename T>

@@ -36,6 +36,7 @@ private slots:
         QVERIFY(mergerTree->exist(7));
         QVERIFY(mergerTree->exist(2));
         QVERIFY(mergerTree->exist(1));
+        delete mergerTree;
     }
 
     void testIntersection()
@@ -53,6 +54,7 @@ private slots:
         QVERIFY(interTree->exist(8));
         QVERIFY(!interTree->exist(4));
         QVERIFY(!interTree->exist(5));
+        delete interTree;
     }
 
     void testAddInt()
@@ -91,6 +93,16 @@ private slots:
         charTree->remove('6');
         QVERIFY(!charTree->exist('6'));
     }
+
+    void testUniqueness()
+    {
+        intTree->clear();
+        intTree->add(2);
+        intTree->add(2);
+        intTree->add(2);
+        QCOMPARE(intTree->returnCount(), 1);
+    }
+
     void cleanupTestCase()
     {
         delete intTree;
