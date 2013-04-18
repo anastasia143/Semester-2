@@ -3,19 +3,15 @@
 #include "treeNode.h"
 using namespace std;
 
-/**
-@class Bag
-@brief This pattern class implements functions of multiset.
-You can add equal elements and Bag will count it.
-You can remove equal elements and Bag will reduce counter.
+/** @class Tree
+This class helps to work with "Bag"
 */
-
 template <typename T>
-class Bag
+class Tree
 {
 public:
-    Bag() : root(NULL), count(0) {}
-    ~Bag();
+    Tree() : root(NULL), count(0) {}
+    ~Tree();
     void deleteTree(TreeNode<T>* temp);
     void clear();
     int returnCount() { return count; }
@@ -30,7 +26,7 @@ Direct functional
 /**
 Print functions that use defferent tree traversals
 */
-private:
+protected:
     int count;
     void printAscending();
     void printAscending(TreeNode<T> *node);
@@ -45,15 +41,25 @@ Helping recursive functions
     int getElementCount(TreeNode<T> *&node, T value);
 };
 
+
+/**
+@class Bag
+@brief This pattern class implements functions of multiset.
+You can add equal elements and Bag will count it.
+You can remove equal elements and Bag will reduce counter.
+*/
 template <typename T>
-void Bag<T>::add(T value)
+class Bag : public Tree<T> {};
+
+template <typename T>
+void Tree<T>::add(T value)
 {
     add(root, value);
     count++;
 }
 
 template <typename T>
-void Bag<T>::add(TreeNode<T> *&node, T value)
+void Tree<T>::add(TreeNode<T> *&node, T value)
 {
     if (node == NULL)
     {
@@ -69,7 +75,7 @@ void Bag<T>::add(TreeNode<T> *&node, T value)
 }
 
 template <typename T>
-void Bag<T>::printAscending()
+void Tree<T>::printAscending()
 {
     if (count == 0)
     {
@@ -86,7 +92,7 @@ void Bag<T>::printAscending()
 }
 
 template <typename T>
-void Bag<T>::printAscending(TreeNode<T> *node)
+void Tree<T>::printAscending(TreeNode<T> *node)
 {
     if (node != NULL)
     {
@@ -97,7 +103,7 @@ void Bag<T>::printAscending(TreeNode<T> *node)
 }
 
 template <typename T>
-void Bag<T>::printDescending()
+void Tree<T>::printDescending()
 {
     if (count == 0)
     {
@@ -114,7 +120,7 @@ void Bag<T>::printDescending()
 }
 
 template <typename T>
-void Bag<T>::printDescending(TreeNode<T> *node)
+void Tree<T>::printDescending(TreeNode<T> *node)
 {
     if (node != NULL)
     {
@@ -125,7 +131,7 @@ void Bag<T>::printDescending(TreeNode<T> *node)
 }
 
 template <typename T>
-bool Bag<T>::exist(T value)
+bool Tree<T>::exist(T value)
 {
     if (count == 0)
         return false;
@@ -135,7 +141,7 @@ bool Bag<T>::exist(T value)
 }
 
 template <typename T>
-bool Bag<T>::exist(TreeNode<T> *&node, T value)
+bool Tree<T>::exist(TreeNode<T> *&node, T value)
 {
     if (node == NULL)
         return false;
@@ -148,7 +154,7 @@ bool Bag<T>::exist(TreeNode<T> *&node, T value)
 }
 
 template <typename T>
-int Bag<T>::getElementCount(T value)
+int Tree<T>::getElementCount(T value)
 {
     if (!exist(value))
         return 0;
@@ -157,7 +163,7 @@ int Bag<T>::getElementCount(T value)
 }
 
 template <typename T>
-int Bag<T>::getElementCount(TreeNode<T> *&node, T value)
+int Tree<T>::getElementCount(TreeNode<T> *&node, T value)
 {
     if (node->value == value)
         return node->count;
@@ -168,7 +174,7 @@ int Bag<T>::getElementCount(TreeNode<T> *&node, T value)
 }
 
 template <typename T>
-void Bag<T>::remove(T value)
+void Tree<T>::remove(T value)
 {
     if (exist(value))
     {
@@ -180,17 +186,13 @@ void Bag<T>::remove(T value)
 }
 
 template <typename T>
-void Bag<T>::remove(TreeNode<T> *&node, T value)
+void Tree<T>::remove(TreeNode<T> *&node, T value)
 {
 
     if (value < node->value)
-    {
         remove(node->left, value);
-    }
     else if (value > node->value)
-    {
         remove(node->right, value);
-    }
     else if (node->count > 1)
     {
         node->count--;
@@ -239,7 +241,7 @@ void Bag<T>::remove(TreeNode<T> *&node, T value)
 }
 
 template <typename T>
-void Bag<T>::deleteTree(TreeNode<T>* temp)
+void Tree<T>::deleteTree(TreeNode<T>* temp)
 {
     TreeNode<T> *node = temp;
     if (node != NULL)
@@ -251,7 +253,7 @@ void Bag<T>::deleteTree(TreeNode<T>* temp)
 }
 
 template <typename T>
-void Bag<T>::clear()
+void Tree<T>::clear()
 {
     deleteTree(root);
     root = NULL;
@@ -259,7 +261,7 @@ void Bag<T>::clear()
 }
 
 template <typename T>
-Bag<T>::~Bag()
+Tree<T>::~Tree()
 {
     deleteTree(root);
 }
