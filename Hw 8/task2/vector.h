@@ -11,17 +11,18 @@ public:
     Vector(const Vector &vector);
     ~Vector();
 
+    int* getCoordinates() { return coordinates; }
     bool isNull();
 /**
   Functions for addition and substraction return new vectors that are results of operations
   */
-    int* addition(Vector* vector2);
-    int* subtraction(Vector* vector2);
+    Vector* operator+(Vector* vector2);
+    Vector* operator-(Vector* vector2);
     int scalarMultiplication(Vector *vector2);
-private:
 /**
   Coordinates of vector in space and dimension of this space
   */
+private:
     int* coordinates;
     int length;
 };

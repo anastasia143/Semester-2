@@ -24,20 +24,22 @@ bool Vector::isNull()
     return true;
 }
 
-int* Vector::addition(Vector* vector2)
+Vector* Vector::operator+(Vector* vector2)
 {
     int* result = new int[length];
     for(int i = 0; i < length; i++)
         result[i] = coordinates[i] + vector2->coordinates[i];
-    return result;
+    Vector* newVector = new Vector(result, length);
+    return newVector;
 }
 
-int* Vector::subtraction(Vector* vector2)
+Vector* Vector::operator-(Vector* vector2)
 {
     int* result = new int[length];
     for(int i = 0; i < length; i++)
         result[i] = coordinates[i] - vector2->coordinates[i];
-    return result;
+    Vector* newVector = new Vector(result, length);
+    return newVector;
 }
 
 int Vector::scalarMultiplication(Vector* vector2)

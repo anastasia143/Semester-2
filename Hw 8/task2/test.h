@@ -12,6 +12,7 @@ private:
     Vector* vector1;
     Vector* vector2;
     Vector* vector3;
+    Vector* newVector;
     int* coord;
     int len;
 private slots:
@@ -30,14 +31,16 @@ private slots:
 
     void testAddition()
     {
-        coord = vector1->addition(vector2);
+        newVector = vector1->operator+(vector2);
+        coord = newVector->getCoordinates();
         for(int i = 0; i < len; i++)
             QCOMPARE(coord[i], i * 2);
     }
 
     void testSubtraction()
     {
-        coord = vector1->subtraction(vector2);
+        newVector = vector1->operator-(vector2);
+        coord = newVector->getCoordinates();
         for(int i = 0; i < len; i++)
             QCOMPARE(coord[i], 0);
     }
@@ -58,6 +61,7 @@ private slots:
         delete vector1;
         delete vector2;
         delete vector3;
+        delete newVector;
         delete[] coord;
     }
 };
