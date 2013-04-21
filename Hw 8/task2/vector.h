@@ -16,8 +16,8 @@ public:
 /**
   Functions for addition and substraction return new vectors that are results of operations
   */
-    Vector* operator+(Vector* vector2);
-    Vector* operator-(Vector* vector2);
+    void operator+=(const Vector* vector2);
+    void operator-=(const Vector* vector2);
     int scalarMultiplication(Vector *vector2);
 /**
   Coordinates of vector in space and dimension of this space

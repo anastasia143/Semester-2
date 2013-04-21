@@ -24,22 +24,16 @@ bool Vector::isNull()
     return true;
 }
 
-Vector* Vector::operator+(Vector* vector2)
+void Vector::operator+=(const Vector *vector2)
 {
-    int* result = new int[length];
     for(int i = 0; i < length; i++)
-        result[i] = coordinates[i] + vector2->coordinates[i];
-    Vector* newVector = new Vector(result, length);
-    return newVector;
+        coordinates[i] += vector2->coordinates[i];
 }
 
-Vector* Vector::operator-(Vector* vector2)
+void Vector::operator-=(const Vector* vector2)
 {
-    int* result = new int[length];
     for(int i = 0; i < length; i++)
-        result[i] = coordinates[i] - vector2->coordinates[i];
-    Vector* newVector = new Vector(result, length);
-    return newVector;
+        coordinates[i] -= vector2->coordinates[i];
 }
 
 int Vector::scalarMultiplication(Vector* vector2)
