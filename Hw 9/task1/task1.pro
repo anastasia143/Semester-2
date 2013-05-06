@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2013-04-10T11:41:14
+# Project created by QtCreator 2013-05-06T19:27:34
 #
 #-------------------------------------------------
 
@@ -18,8 +18,7 @@ TEMPLATE = app
 SOURCES += main.cpp
 
 HEADERS += \
-    tree.h \
     treeNode.h \
+    tree.h \
     bagTest.h \
-    bagIteratorTest.h \
-    test.h
+    bagIteratorTest.h
